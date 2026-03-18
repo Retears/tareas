@@ -5,6 +5,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-emerald-800">
       <h1>Lista de tareas</h1>
+      <h1>hola linda</h1>
       {
         listaTareas.map(tareaContenido => <Tarea key={tareaContenido.id} tarea={tareaContenido}/>)
       }
