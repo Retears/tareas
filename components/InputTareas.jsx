@@ -1,19 +1,29 @@
 "use client"
 import { useState } from "react"
 
-export default function Formulario({ setFormulario }) {
+export default function InputTareas({ tareas, setTareas }) {
+
     const [titulo, setTitulo] = useState("")
     const [texto, setTexto] = useState("")
+
+    // Añadir tareas
+    const añadirTareas = (tituloInput, textoInput) => {
+        // Crear la nueva tarea
+        const nuevaTarea = {
+            id: Date.now(), // DNI
+            titulo: tituloInput,
+            texto: textoInput
+        }
+        // Esto es el equivalente a tareas.push(nuevaTarea)
+        setTareas([...tareas, nuevaTarea]);
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault()
         // if (!titulo.trim() || !texto.trim()) return
 
         // onAgregar({ titulo, texto })
-        setFormulario({
-            titulo: titulo,
-            texto: texto
-        })
+        añadirTareas(titulo, texto)
         setTitulo("")
         setTexto("")
     }
